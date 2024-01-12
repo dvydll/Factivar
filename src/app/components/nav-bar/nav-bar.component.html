@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/login" routerLinkActive="active">
+      <img src="../../../assets/icons/factivar_text.svg" alt="Factivar Logo" height="60" width="154">
+    </a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul
+        class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+        style="--bs-scroll-height: 100px"
+      >
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/clientes" routerLinkActive="active"
+            >Clientes</a
+          >
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/facturas" routerLinkActive="active"
+            >Facturas</a
+          >
+        </li>
+        <li class="nav-item active">
+          <a
+            class="nav-link"
+            routerLink="/proveedores"
+            routerLinkActive="active"
+            >Proveedores</a
+          >
+        </li>
+      </ul>
+<button type="button" (click)="getToken()">token</button>
+      <article class="d-flex">
+      @if (user) {
+        <p class="me-2 mt-2">
+          Bienvenido, <b>{{ user.email }}</b>
+        </p>
+        <img class="avatar" [src]="user.avatarUrl" alt="Avatar de {{ user.email }}">
+
+        <button
+          class="btn btn-outline-success"
+          type="button"
+          (click)="cerrarSesion()"
+        >
+          Cerrar sesión
+        </button>
+      } @else {
+        <p>Inicia sesión</p>
+      }
+    </article>
+    </div>
+  </div>
+</nav>

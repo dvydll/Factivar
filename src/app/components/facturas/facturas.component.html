@@ -1,0 +1,104 @@
+<div class="container">
+    <div class="invoice-header">
+      <h1>Factura</h1>
+      <div>
+        <strong>Número:</strong>
+        <input type="text" placeholder="Número">
+      </div>
+      <div>
+        <strong>Serie:</strong>
+        <input type="text" placeholder="Serie">
+      </div>
+    </div>
+
+    <div class="invoice-details">
+      <div>
+        <strong>Fecha de expedición:</strong>
+        <input type="date">
+      </div>
+      <div>
+        <strong>Nombre o razón social del emisor:</strong>
+        <input type="text" placeholder="Nombre o razón social">
+      </div>
+      <div>
+        <strong>NIF del emisor:</strong>
+        <input type="text" placeholder="NIF">
+      </div>
+      <div>
+        <strong>Domicilio fiscal del emisor:</strong>
+        <input type="text" placeholder="Domicilio fiscal">
+      </div>
+      <!-- Se puede poner mas cosas del emisor ... -->
+
+      <div>
+        <strong>Nombre o razón social del destinatario:</strong>
+        <input type="text" placeholder="Nombre o razón social">
+      </div>
+      <div>
+        <strong>NIF del destinatario:</strong>
+        <input type="text" placeholder="NIF">
+      </div>
+      <div>
+        <strong>Domicilio fiscal del destinatario:</strong>
+        <input type="text" placeholder="Domicilio fiscal">
+      </div>
+      <!-- Se puede poner mas cosas -->
+    </div>
+
+    <div class="invoice-items">
+      <div class="item-row">
+        <div class="item-description">
+          <strong>Descripción</strong>
+        </div>
+        <div class="item-quantity">
+          <strong>Cantidad</strong>
+        </div>
+        <div class="item-price">
+          <strong>Precio</strong>
+        </div>
+      </div>
+
+      <div class="item-row">
+        <div class="item-description">
+          <input type="text" placeholder="Descripción del producto">
+        </div>
+        <div class="item-quantity">
+          <input type="number" placeholder="Cantidad">
+        </div>
+        <div class="item-price">
+          <input type="number" placeholder="Precio">
+        </div>
+      </div>
+
+      <!-- Puedes agregar más cosas -->
+
+      <div class="total-row">
+        <div>Total:</div>
+        <div id="totalAmount">0.00</div>
+      </div>
+    </div>
+
+    <div class="invoice-footer">
+      <button onclick="calculateTotal()">Calcular Total</button>
+    </div>
+  </div>
+<!-- 
+<script>
+function calculateTotal() {
+
+  const quantityElements = document.querySelectorAll('.item-quantity input');
+  const priceElements = document.querySelectorAll('.item-price input');
+
+  let totalAmount = 0;
+
+  for (let i = 0; i < quantityElements.length; i++) {
+    const quantity = parseFloat(quantityElements[i].value) || 0;
+    const price = parseFloat(priceElements[i].value) || 0;
+
+    totalAmount += quantity * price;
+  }
+
+  document.getElementById('totalAmount').textContent = totalAmount.toFixed(2);
+  </script>
+} -->
+
