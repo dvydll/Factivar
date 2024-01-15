@@ -17,12 +17,12 @@ export class SocialAuthService {
   };
 
   private facebookConfig: AuthConfig = {
-    issuer: 'https://www.facebook.com/v13.0/dialog/oauth',
-    redirectUri: window.location.origin + '/inicio',
+    issuer: 'https://www.facebook.com/v18.0/dialog/oauth',
+    redirectUri: window.location.origin,
     clientId: environment.facebookClient.id,
     dummyClientSecret: environment.facebookClient.secret,
-    tokenEndpoint: 'https://graph.facebook.com/v13.0/oauth/access_token',
-    scope: 'openid profile email',
+    tokenEndpoint: 'https://graph.facebook.com/v18.0/oauth/access_token',
+    scope: 'public_profile,email',
     oidc: false,
     requireHttps: false,
   };
@@ -30,7 +30,9 @@ export class SocialAuthService {
   constructor(
     private oauthService: OAuthService,
     private userService: UserService
-  ) {}
+  ) {
+    this.initGoogleLogin();
+  }
 
   public login() {
     this.oauthService.initLoginFlow();

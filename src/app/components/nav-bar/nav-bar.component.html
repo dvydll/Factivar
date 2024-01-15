@@ -43,9 +43,9 @@
       <article class="d-flex">
       @if (user) {
         <p class="me-2 mt-2">
-          Bienvenido, <b>{{ user.email }}</b>
+          Bienvenido, <b>{{ user.nombre }}</b>
         </p>
-        <img class="avatar" [src]="user.avatarUrl" alt="Avatar de {{ user.email }}">
+        <img class="avatar" [src]="user.avatarUrl" alt="Avatar de {{ user.nombre }}">
 
         <button
           class="btn btn-outline-success"

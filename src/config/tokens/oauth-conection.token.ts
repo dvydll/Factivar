@@ -14,12 +14,12 @@ export const googleOAuthConfig: AuthConfig = {
 };
 
 export const facebookOAuthConfig: AuthConfig = {
-  issuer: 'https://www.facebook.com/v13.0/dialog/oauth',
+  issuer: 'https://www.facebook.com/v18.0/dialog/oauth',
   redirectUri: window.location.origin,
   clientId: environment.facebookClient.id,
   dummyClientSecret: environment.facebookClient.secret,
-  tokenEndpoint: 'https://graph.facebook.com/v13.0/oauth/access_token',
-  scope: 'email',
+  tokenEndpoint: 'https://graph.facebook.com/v18.0/oauth/access_token',
+  scope: 'public_profile,email',
   responseType: 'token',
   showDebugInformation: true,
   oidc: false,

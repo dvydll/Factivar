@@ -52,7 +52,7 @@
     <div class="social-account-container">
       <span class="title">O inicia sesión con</span>
       <div class="social-accounts">
-        <app-google-signin />
+        <app-google-signin (idToken)="login"/>
         <app-facebook-signin />
       </div>
     </div>

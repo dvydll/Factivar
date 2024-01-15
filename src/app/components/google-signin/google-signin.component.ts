@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { SocialAuthService } from '@app/services/auth/social-auth.service';
 
 @Component({
@@ -10,10 +10,15 @@ import { SocialAuthService } from '@app/services/auth/social-auth.service';
   providers: [SocialAuthService],
 })
 export class GoogleSigninComponent {
+  @Output() idToken = new EventEmitter<string>();
+  
   constructor(private socialAuthService: SocialAuthService) {}
 
   loginWithGoogle() {
-    this.socialAuthService.initGoogleLogin();
     this.socialAuthService.login();
+    // window.location.reload();
+    // const googleIdToken = localStorage.getItem('googleIdToken');
+    const googleIdToken = this.socialAuthService.getIdToken();
+    this.idToken.emit(googleIdToken);
   }
 }

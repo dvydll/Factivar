@@ -30,7 +30,29 @@ export class AuthService {
           this.userService.updateUser({
             id: payload.id,
             email: payload.email,
-            token: payload.token,
+            token: data,
+            rol: payload.rol,
+            nombre:payload.nombre,
+            apellidos:payload.apellidos,
+            avatarUrl:payload.avatarUrl,
+          });
+        })
+      );
+  }
+
+  public loginWithGoogle(idToken?: string): Observable<string> {
+    return this.http
+      .post<string>(`${this.urlAPI}/google-authenticate`, idToken)
+      .pipe(
+        tap((data) => {
+
+          const helper = new JwtHelperService;
+          const payload = helper.decodeToken(data) as IUserPayload
+
+          this.userService.updateUser({
+            id: payload.id,
+            email: payload.email,
+            token: data,
             rol: payload.rol,
             nombre:payload.nombre,
             apellidos:payload.apellidos,

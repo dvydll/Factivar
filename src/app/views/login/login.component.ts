@@ -43,8 +43,6 @@ export class LoginComponent {
   login() {
     this.authService.login(this.infoLogin).subscribe({
       next: (data) => {
-        //const user: ILoginResponse = { ...data };
-
         sessionStorage.setItem(environment.storage.user, JSON.stringify(data));
         this.router.navigateByUrl('clientes');
       },
@@ -58,5 +56,9 @@ export class LoginComponent {
         });
       },
     });
+  }
+
+  loginWithGoogle(){
+    this.authService.loginWithGoogle();
   }
 }
